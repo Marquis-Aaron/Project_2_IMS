@@ -17,5 +17,5 @@ public class RetailerService {
     @Autowired
     RetailerDao dao;
 
-    public Retailer getById(Integer id){ return dao.findById(id);}
+    public Retailer getById(Integer id){ return dao.findRetailerById(id);}
 }

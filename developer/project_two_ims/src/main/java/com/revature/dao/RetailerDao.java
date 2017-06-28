@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface RetailerDao extends CrudRepository<Retailer, Integer> {
-    public Retailer findById(Integer id);
+    public Retailer findRetailerById(Integer id);
 }

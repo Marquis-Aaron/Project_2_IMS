@@ -21,4 +21,6 @@ public class PurchaseOrderService
     public PurchaseOrder getById(Integer id){return dao.findOne(id);}
 
     public List<PurchaseOrder> getAll(){return (List<PurchaseOrder>)dao.findAll();}
+
+
 }

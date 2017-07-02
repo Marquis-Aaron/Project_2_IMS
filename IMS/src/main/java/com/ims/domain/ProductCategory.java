@@ -1,9 +1,6 @@
 package com.ims.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by Marquis on 6/28/2017.
@@ -13,7 +10,7 @@ import javax.persistence.Table;
 public class ProductCategory {
 
     private Integer id1;
-    private Integer id2;
+    private Category category;
 
     public ProductCategory() {
     }
@@ -28,20 +25,13 @@ public class ProductCategory {
         this.id1 = id1;
     }
 
-    @Column(name="CID")
-    public Integer getId2() {
-        return id2;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CID")
+    public Category getCategory() {
+        return category;
     }
 
-    public void setId2(Integer id2) {
-        this.id2 = id2;
-    }
-
-    @Override
-    public String toString() {
-        return "ProductCategory{" +
-                "pid=" + id1 +
-                ", cid=" + id2 +
-                '}';
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

@@ -1,0 +1,39 @@
+<div class="jumbotron text-center">
+    <h1>Orders</h1>
+</div>
+<table class="table table-hover table-inverse bg-inverse">
+    <tr>
+        <th>Order ID</th>
+        <th>Supplier</th>
+        <th>Retailer</th>
+        <th>Total Cost</th>
+    </tr>
+    <tr ng-repeat="o in orders" data-target="#viewOrderLine" scope="row" ng-click="getPurchaseOrderLine(o.id)">
+        <td>{{o.id}}</td>
+        <td>{{o.supplier}}</td>
+        <td>{{o.retailer}}</td>
+        <td>{{o.cost}}</td>
+    </tr>
+</table>
+<div class="modal fade" id="viewOrderLine">
+    <div class="modal-dialog" role="document">
+        <div class="modal-header">
+            <h4 class="modal-title">Purchase Order ID: {{o.id}}</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div ng-repeat="pol in purchaseOrderLine">
+                Product: {{pol.product.name}} Category {{pol.product.productCategory.category}}
+                Supplier Price: {{pol.product.supplierPrice}}
+                Retailer Price: {{pol.product.retailerPrice}}
+                Quantity: {{pol.quantity}} Cost: {{pol.cost | currency}}
+                <br>
+            </div>
+        </div>
+        <div class="modal-footer">
+            Total Order Cost: {{o.cost}}
+        </div>
+    </div>
+</div>

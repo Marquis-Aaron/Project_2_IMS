@@ -1,17 +1,16 @@
-imsApp.controller("SupplierViewCtrl", ['$scope', '$http',
+imsApp.controller("RetailerViewCtrl", ['$scope', '$http',
 function($scope, $http){
 
     $scope.getAll = function(){
 
         $http({
             method: 'GET',
-            url: "/supplier/all"
+            url: "/retailer/all"
         }).then(function successCallback(response) {
-                $scope.suppliers = response.data; 
+                $scope.retailers = response.data; 
             }, function errorCallback(response) {
-                alert("Unable to retreive suppliers!");
+                alert("Unable to retreive retailers!");
         });
     }();
-
-
+    
 }]);

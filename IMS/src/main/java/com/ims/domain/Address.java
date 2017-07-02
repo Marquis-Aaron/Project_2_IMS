@@ -1,9 +1,6 @@
 package com.ims.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.DoubleSummaryStatistics;
 
 /**
@@ -66,6 +63,10 @@ public class Address
     public void setZip(String zip) {
         this.zip = zip;
     }
+
+
+
+
 
     @Override
     public String toString() {

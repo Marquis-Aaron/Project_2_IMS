@@ -1,0 +1,17 @@
+<div class="jumbotron text-center">
+    <h1>Retailers</h1>
+</div>
+<table class="table table-hover table-inverse bg-inverse">
+    <tr>
+        <th>Name</th>
+        <th>Supplier Price</th>
+        <th>Retailer Price</th>
+        <th>Category</th>
+    </tr>
+    <tr ng-repeat="p in products">
+        <td>{{p.name}}</td>
+        <td>{{p.supplierPrice | currency}}</td>
+        <td>{{p.retailerPrice | currency}}</td>
+        <td>{{p.productCategory.category.name}}</td>
+    </tr>
+</table>

@@ -1,9 +1,6 @@
 package com.ims.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by Marquis on 6/28/2017.
@@ -15,6 +12,7 @@ public class Product {
     private String name;
     private Float supplierPrice;
     private Float retailerPrice;
+    private ProductCategory productCategory;
 
     public Product() {}
 
@@ -53,6 +51,16 @@ public class Product {
 
     public void setRetailerPrice(Float retailerPrice) {
         this.retailerPrice = retailerPrice;
+    }
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "PID")
+    public ProductCategory getProductCategory() {
+        return productCategory;
+    }
+
+    public void setProductCategory(ProductCategory productCategory) {
+        this.productCategory = productCategory;
     }
 
     @Override

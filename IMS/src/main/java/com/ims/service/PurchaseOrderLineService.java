@@ -21,4 +21,6 @@ public class PurchaseOrderLineService
     public PurchaseOrderLine getById(Integer id){return dao.findOne(id);}
 
     public List<PurchaseOrderLine> getAll(){return (List<PurchaseOrderLine>)dao.findAll();}
+
+    public List<PurchaseOrderLine> getPOById(Integer purchaseOrder){return (List<PurchaseOrderLine>)dao.findAllByPurchaseOrder(purchaseOrder);}
 }

@@ -1,9 +1,6 @@
 package com.ims.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by Marquis on 6/28/2017.
@@ -14,7 +11,7 @@ public class PurchaseOrderLine
 {
     private Integer id;
     private Integer purchaseOrder;
-    private Integer product;
+    private Product product;
     private Integer quantity;
     private Float cost;
 
@@ -40,12 +37,13 @@ public class PurchaseOrderLine
         this.purchaseOrder = purchaseOrder;
     }
 
-    @Column(name = "POLPRODUCT")
-    public Integer getProduct() {
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="POLPRODUCT")
+    public Product getProduct() {
         return product;
     }
 
-    public void setProduct(Integer product) {
+    public void setProduct(Product product) {
         this.product = product;
     }
 

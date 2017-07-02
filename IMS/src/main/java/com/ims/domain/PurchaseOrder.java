@@ -2,10 +2,8 @@ package com.ims.domain;
 
 import oracle.sql.TIMESTAMP;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by Marquis on 6/28/2017.
@@ -16,10 +14,10 @@ public class PurchaseOrder
 {
     private Integer id;
     private TIMESTAMP time;
-    private Integer supplier;
-    private Integer retailer;
+    private Supplier supplier;
+    private Retailer retailer;
     private Float cost;
-
+    
     public PurchaseOrder() {
     }
 
@@ -42,21 +40,24 @@ public class PurchaseOrder
         this.time = time;
     }
 
-    @Column(name="POSUPPLIER")
-    public Integer getSupplier() {
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "POSUPPLIER")
+    public Supplier getSupplier() {
         return supplier;
     }
 
-    public void setSupplier(Integer supplier) {
+
+    public void setSupplier(Supplier supplier) {
         this.supplier = supplier;
     }
 
-    @Column(name="PORETAILER")
-    public Integer getRetailer() {
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "PORETAILER")
+    public Retailer getRetailer() {
         return retailer;
     }
 
-    public void setRetailer(Integer retailer) {
+    public void setRetailer(Retailer retailer) {
         this.retailer = retailer;
     }
 

@@ -33,4 +33,10 @@ public class PurchaseOrderLineController
         List<PurchaseOrderLine> pol = (List<PurchaseOrderLine>) service.getAll();
         return new ResponseEntity<List<PurchaseOrderLine>>(pol, HttpStatus.OK);
     }
+
+    @RequestMapping(value="/pol/poid/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<PurchaseOrderLine>> getPOById(@PathVariable Integer id){
+        List<PurchaseOrderLine> pol = service.getPOById(id);
+        return new ResponseEntity<List<PurchaseOrderLine>>(pol, HttpStatus.OK);
+    }
 }

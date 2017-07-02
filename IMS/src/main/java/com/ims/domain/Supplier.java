@@ -1,9 +1,6 @@
 package com.ims.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by Marquis on 6/28/2017.
@@ -14,7 +11,7 @@ public class Supplier {
 
     private Integer id;
     private String name;
-    private Integer address;
+    private Address address;
 
     public Supplier() {
     }
@@ -38,12 +35,13 @@ public class Supplier {
         this.name = name;
     }
 
-    @Column(name="SADDRESS")
-    public Integer getAddress() {
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "SADDRESS")
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(Integer address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 

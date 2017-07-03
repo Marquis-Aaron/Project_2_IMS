@@ -3,6 +3,9 @@ package com.ims.domain;
 import oracle.sql.TIMESTAMP;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -10,14 +13,13 @@ import java.util.List;
  */
 @Entity
 @Table(name="PURCHASEORDER")
-public class PurchaseOrder
-{
+public class PurchaseOrder implements Serializable {
     private Integer id;
-    private TIMESTAMP time;
+    private Timestamp time;
     private Supplier supplier;
     private Retailer retailer;
     private Float cost;
-    
+
     public PurchaseOrder() {
     }
 
@@ -40,15 +42,15 @@ public class PurchaseOrder
     }
 
     @Column(name="POTIME")
-    public TIMESTAMP getTime() {
+    public Timestamp getTime() {
         return time;
     }
 
-    public void setTime(TIMESTAMP time) {
+    public void setTime(Timestamp time) {
         this.time = time;
     }
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "POSUPPLIER")
     public Supplier getSupplier() {
         return supplier;
@@ -59,7 +61,7 @@ public class PurchaseOrder
         this.supplier = supplier;
     }
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "PORETAILER")
     public Retailer getRetailer() {
         return retailer;

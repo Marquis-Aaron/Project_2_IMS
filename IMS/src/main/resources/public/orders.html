@@ -1,6 +1,9 @@
 <div class="jumbotron text-center">
     <h1>Orders</h1>
 </div>
+<!--
+    TODO: set up filter to allow you to filter by supplier and retailer
+-->
 <table class="table table-hover table-inverse bg-inverse">
     <tr>
         <th>Order ID</th>
@@ -8,24 +11,26 @@
         <th>Retailer</th>
         <th>Total Cost</th>
     </tr>
-    <tr ng-repeat="o in orders" data-target="#viewOrderLine" scope="row" ng-click="getPurchaseOrderLine(o.id)">
+    <tr ng-repeat="o in orders" data-toggle="modal" data-target="#viewOrderLine" scope="row" ng-click="getPurchaseOrderLine(o.id, o.time, o.cost)">
         <td>{{o.id}}</td>
-        <td>{{o.supplier}}</td>
-        <td>{{o.retailer}}</td>
+        <td>{{o.supplier.name}}</td>
+        <td>{{o.retailer.name}}</td>
         <td>{{o.cost}}</td>
+        <td>{{o.time | date : format : timezone}}
     </tr>
 </table>
-<div class="modal fade" id="viewOrderLine">
+<div class="modal fade bg-faded" id="viewOrderLine" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-header">
-            <h4 class="modal-title">Purchase Order ID: {{o.id}}</h4>
+            <h4 class="modal-title">Purchase Order ID: {{selectedOrder.id}}</h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="modal-body">
+                Date of Purchase: {{selectedOrder.time | date : format : timezone}}
             <div ng-repeat="pol in purchaseOrderLine">
-                Product: {{pol.product.name}} Category {{pol.product.productCategory.category}}
+                Product: {{pol.product.name}} Category {{pol.product.productCategory.category.name}}
                 Supplier Price: {{pol.product.supplierPrice}}
                 Retailer Price: {{pol.product.retailerPrice}}
                 Quantity: {{pol.quantity}} Cost: {{pol.cost | currency}}
@@ -33,7 +38,7 @@
             </div>
         </div>
         <div class="modal-footer">
-            Total Order Cost: {{o.cost}}
+            Total Order Cost: {{selectedOrder.cost | currency}}
         </div>
     </div>
 </div>

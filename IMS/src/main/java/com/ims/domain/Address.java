@@ -1,6 +1,7 @@
 package com.ims.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.DoubleSummaryStatistics;
 
 /**
@@ -8,7 +9,7 @@ import java.util.DoubleSummaryStatistics;
  */
 @Entity
 @Table(name = "ADDRESS")
-public class Address
+public class Address implements Serializable
 {
     private Integer id;
     private String street;

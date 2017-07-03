@@ -31,10 +31,15 @@ function($scope, $http){
         cost: ""
     };
 
-    $scope.getPurchaseOrderLine = function(id){
+    $scope.getPurchaseOrderLine = function(oid, otime, ocost){
+        $scope.selectedOrder = {
+            id: oid,
+            time: otime,
+            cost: ocost
+        }
         $http({
             method: 'GET',
-            url: "/pol/poid/" + id
+            url: "/pol/poid/" + oid
         }).then(function successCallback(response) {
                 $scope.purchaseOrderLine = response.data; 
             }, function errorCallback(response) {

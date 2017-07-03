@@ -1,13 +1,14 @@
 package com.ims.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by Marquis on 6/28/2017.
  */
 @Entity
 @Table(name="SUPPLIER")
-public class Supplier {
+public class Supplier implements Serializable{
 
     private Integer id;
     private String name;

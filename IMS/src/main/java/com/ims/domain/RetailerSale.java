@@ -2,10 +2,8 @@ package com.ims.domain;
 
 import oracle.sql.TIMESTAMP;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.sql.Timestamp;
 
 /**
  * Created by Marquis on 6/28/2017.
@@ -15,11 +13,11 @@ import javax.persistence.Table;
 public class RetailerSale
 {
     private Integer id;
-    private Integer retailer;
-    private Integer product;
+    private Retailer retailer;
+    private Product product;
     private Integer quantity;
     private Float cost;
-    private TIMESTAMP time;
+    private Timestamp time;
 
     public RetailerSale() {
     }
@@ -34,21 +32,22 @@ public class RetailerSale
         this.id = id;
     }
 
-    @Column(name="RSRETAILER")
-    public Integer getRetailer() {
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="RSRETAILER")
+    public Retailer getRetailer() {
         return retailer;
     }
 
-    public void setRetailer(Integer retailer) {
+    public void setRetailer(Retailer retailer) {
         this.retailer = retailer;
     }
-
-    @Column(name="RSPRODUCT")
-    public Integer getProduct() {
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="RSPRODUCT")
+    public Product getProduct() {
         return product;
     }
 
-    public void setProduct(Integer product) {
+    public void setProduct(Product product) {
         this.product = product;
     }
 
@@ -71,11 +70,11 @@ public class RetailerSale
     }
 
     @Column(name = "RSTIME")
-    public TIMESTAMP getTime() {
+    public Timestamp getTime() {
         return time;
     }
 
-    public void setTime(TIMESTAMP time) {
+    public void setTime(Timestamp time) {
         this.time = time;
     }
 

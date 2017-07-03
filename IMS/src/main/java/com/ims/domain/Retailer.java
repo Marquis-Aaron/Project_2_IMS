@@ -1,6 +1,7 @@
 package com.ims.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by Marquis on 6/28/2017.
@@ -8,7 +9,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="RETAILER")
-public class Retailer
+public class Retailer implements Serializable
 {
     private Integer id;
     private String name;

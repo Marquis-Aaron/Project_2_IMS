@@ -18,6 +18,14 @@ public class PurchaseOrderLine
     public PurchaseOrderLine() {
     }
 
+    public PurchaseOrderLine(Integer id, Integer purchaseOrder, Product product, Integer quantity, Float cost) {
+        this.id = id;
+        this.purchaseOrder = purchaseOrder;
+        this.product = product;
+        this.quantity = quantity;
+        this.cost = cost;
+    }
+
     @Id
     @Column(name="POLID")
     public Integer getId() {

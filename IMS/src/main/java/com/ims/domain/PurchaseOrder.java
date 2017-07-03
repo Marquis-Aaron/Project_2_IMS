@@ -21,6 +21,14 @@ public class PurchaseOrder
     public PurchaseOrder() {
     }
 
+    public PurchaseOrder(Integer id, TIMESTAMP time, Supplier supplier, Retailer retailer, Float cost) {
+        this.id = id;
+        this.time = time;
+        this.supplier = supplier;
+        this.retailer = retailer;
+        this.cost = cost;
+    }
+
     @Id
     @Column(name="POID")
     public Integer getId() {

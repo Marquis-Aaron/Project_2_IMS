@@ -29,7 +29,7 @@ public class AddressController
         return new ResponseEntity<Address>(a, HttpStatus.OK);
     }
 
-    @RequestMapping(value="/Address/all", method= RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value="/address/all", method= RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Address>> getAll(){
         List<Address> p = (List<Address>) service.getAll();
         return new ResponseEntity<List<Address>>(p, HttpStatus.OK);

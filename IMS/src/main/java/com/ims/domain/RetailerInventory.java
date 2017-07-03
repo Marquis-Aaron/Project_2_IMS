@@ -21,6 +21,14 @@ public class RetailerInventory
     public RetailerInventory() {
     }
 
+    public RetailerInventory(Integer id, Integer retailer, Integer product, Integer quantity, Integer threshold) {
+        this.id = id;
+        this.retailer = retailer;
+        this.product = product;
+        this.quantity = quantity;
+        this.threshold = threshold;
+    }
+
     @Id
     @Column(name="RIID")
     public Integer getId() {

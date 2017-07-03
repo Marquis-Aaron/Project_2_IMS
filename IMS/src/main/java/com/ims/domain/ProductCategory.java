@@ -15,6 +15,11 @@ public class ProductCategory {
     public ProductCategory() {
     }
 
+    public ProductCategory(Integer id1, Category category) {
+        this.id1 = id1;
+        this.category = category;
+    }
+
     @Id
     @Column(name="PID")
     public Integer getId1() {

@@ -24,6 +24,15 @@ public class RetailerSale
     public RetailerSale() {
     }
 
+    public RetailerSale(Integer id, Integer retailer, Integer product, Integer quantity, Float cost, TIMESTAMP time) {
+        this.id = id;
+        this.retailer = retailer;
+        this.product = product;
+        this.quantity = quantity;
+        this.cost = cost;
+        this.time = time;
+    }
+
     @Id
     @Column(name="RSID")
     public Integer getId() {

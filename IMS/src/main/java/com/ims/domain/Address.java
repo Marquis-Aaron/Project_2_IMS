@@ -18,6 +18,14 @@ public class Address
 
     public Address() {    }
 
+    public Address(Integer id, String street, String city, String state, String zip) {
+        this.id = id;
+        this.street = street;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
+    }
+
     @Id
     @Column(name = "AID")
     public Integer getId() {
@@ -63,8 +71,6 @@ public class Address
     public void setZip(String zip) {
         this.zip = zip;
     }
-
-
 
 
 

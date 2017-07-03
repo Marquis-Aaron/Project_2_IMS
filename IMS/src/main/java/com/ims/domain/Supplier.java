@@ -16,6 +16,12 @@ public class Supplier {
     public Supplier() {
     }
 
+    public Supplier(Integer id, String name, Address address) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+    }
+
     @Id
     @Column(name="SID")
     public Integer getId() {

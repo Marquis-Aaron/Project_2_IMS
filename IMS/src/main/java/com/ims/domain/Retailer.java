@@ -16,6 +16,12 @@ public class Retailer
 
     public Retailer(){}
 
+    public Retailer(Integer id, String name, Address address) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+    }
+
     @Id
     @Column(name="RID")
     public Integer getId() {

@@ -16,6 +16,14 @@ public class Product {
 
     public Product() {}
 
+    public Product(Integer id, String name, Float supplierPrice, Float retailerPrice, ProductCategory productCategory) {
+        this.id = id;
+        this.name = name;
+        this.supplierPrice = supplierPrice;
+        this.retailerPrice = retailerPrice;
+        this.productCategory = productCategory;
+    }
+
     @Id
     @Column(name="PID")
     public Integer getId() {

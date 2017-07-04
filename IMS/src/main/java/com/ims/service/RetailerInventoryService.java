@@ -22,4 +22,8 @@ public class RetailerInventoryService
     public RetailerInventory getById(Integer id){return dao.findOne(id);}
 
     public List<RetailerInventory> getAll(){return (List<RetailerInventory>)dao.findAll();}
+
+    public List<RetailerInventory> getSoldOut() {return dao.productSoldOutNotification();}
+    public List<RetailerInventory> getNearThresehold() {return  dao.approachingThresholdNotification();}
+    public List<RetailerInventory> getBelowThresehold() {return dao.belowThresholdNotification();}
 }

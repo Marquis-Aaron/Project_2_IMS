@@ -1,3 +1,12 @@
 <div class="jumbotron text-center">
-    <h1>Here will be notifications when retailers are low on products!</h1>
+    <h1>Notifications:</h1>
+</div>
+<div class="alert alert-danger" ng-repeat="s in soldOut">
+    <strong>Alert!</strong> {{s.retailer.name}} is sold out of {{s.product.name}}! Place order immediately! Product threshold: {{s.threshold}}.
+</div>
+<div class="alert alert-warning" ng-repeat="b in below">
+    <strong>Warning!</strong> {{b.retailer.name}} is below threshold of {{b.threshold}} on {{b.product.name}}. Current inventory: {{b.quantity}}.
+</div>
+<div class="alert alert-info" ng-repeat="n in near">
+    <strong>Attention!</strong> {{n.retailer.name}} is approaching threshold of {{n.threshold}} on {{b.product.name}}. Current inventory: {{n.quantity}}.
 </div>

@@ -1,19 +1,23 @@
 <div class="jumbotron text-center">
-    <h1>Retailers</h1>
+    <h1>Sales</h1>
 </div>
 <table class="table table-hover table-inverse bg-inverse">
     <tr>
-        <th>Name</th>
-        <th>Street</th>
-        <th>City</th>
-        <th>State</th>
-        <th>Zip Code</th>
+        <th>Sale ID</th>
+        <th>Retailer</th>
+        <th>Product</th>
+        <th>Category</th>
+        <th>Quantity</th>
+        <th>Total Cost</th>
+        <th>Date </th>
     </tr>
-    <tr ng-repeat="r in retailers">
-        <td>{{r.name}}</td>
-        <td>{{r.address.street}}</td>
-        <td>{{r.address.city}}</td>
-        <td>{{r.address.state}}</td>
-        <td>{{r.address.zip}}</td>
+    <tr ng-repeat="s in sales">
+        <td>{{s.id}}</td>
+        <td>{{s.retailer.name}}</td>
+        <td>{{s.product.name}}</td>
+        <td>{{s.product.productCategory.category.name}}</td>
+        <td>{{s.quantity}}</td>
+        <td>{{s.cost | currency}}</td>
+        <td>{{s.time | date : format : timezone}}</td>
     </tr>
 </table>

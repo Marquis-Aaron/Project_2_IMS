@@ -33,4 +33,20 @@ public class RetailerInventoryController
         List<RetailerInventory> ri = (List<RetailerInventory>) service.getAll();
         return new ResponseEntity<List<RetailerInventory>>(ri, HttpStatus.OK);
     }
+    @RequestMapping(value="/ri/soldOut", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<RetailerInventory>> getSoldOut(){
+        List<RetailerInventory> ri = service.getSoldOut();
+        return new ResponseEntity<List<RetailerInventory>>(ri, HttpStatus.OK);
+    }
+    @RequestMapping(value="/ri/below", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<RetailerInventory>> getBelow(){
+        List<RetailerInventory> ri = service.getBelowThresehold();
+        return new ResponseEntity<List<RetailerInventory>>(ri, HttpStatus.OK);
+    }
+    @RequestMapping(value="/ri/near", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<RetailerInventory>> getNear(){
+        List<RetailerInventory> ri = service.getNearThresehold();
+        return new ResponseEntity<List<RetailerInventory>>(ri, HttpStatus.OK);
+    }
+
 }

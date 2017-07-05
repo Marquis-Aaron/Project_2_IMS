@@ -1,0 +1,30 @@
+<div class="well well-lg">
+    <form class="form" ng-submit="submitOrder()">
+        <div class="form-group">
+            <label for="retailer">Retailer: </label>
+            <select ng-model="order.retailer" ng-options="ret.name for ret in retailers"></select>
+        </div>
+        <div class="form-group">
+            <label for="supplier">Supplier: </label>
+            <select ng-model="order.supplier" ng-options="sup.name for sup in suppliers"></select>
+        </div>
+        <div class="well well-sm">
+            <div class="form-group" ng-repeat="p in newProducts">
+                <lable for="category">Category: </label>
+                <select ng-model="p.category" ng-options="cat.name for cat in categories" ng-change="changeCateogry($index)" ng-if="p.item.selected"></select>
+                <span ng-if="!p.item.selected">{{p.category.name}}</span>
+                <label for="product">Product: </label>
+                <select ng-model="p.product" ng-options="pro.name for pro in products | filter:productFilter:pro" ng-if="p.item.selected"></select>
+                <span ng-if="!p.item.selected">{{p.product.name}}</span>
+                <label for="cost">Item Cost: </label>{{p.product.supplierPrice | currency}}
+                <label for="qty">Quantity: </label>
+                <input type="number" min="0" max="999" maxlength="3" ng-model="p.qty" ng-disabled="!p.item.selected" ng-pattern="/[0-9]+/">
+                <button type="button" class="btn btn-primary" ng-click="addProduct($index)" ng-if="p.item.selected" ng-disabled="!p.category || !p.product || !p.qty">Add To Order</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="total">Total Cost: </label>{{order.cost | currency}}
+            <input type="submit" value="Submit" style="float: right;" ng-disabled="order.cost == 0 || !order.retailer || !order.supplier">
+        </div>
+    </form>
+</div>

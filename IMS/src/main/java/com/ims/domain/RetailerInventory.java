@@ -1,9 +1,6 @@
 package com.ims.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by Marquis on 6/28/2017.
@@ -13,8 +10,8 @@ import javax.persistence.Table;
 public class RetailerInventory
 {
     private Integer id;
-    private Integer retailer;
-    private Integer product;
+    private Retailer retailer;
+    private Product product;
     private Integer quantity;
     private Integer threshold;
 
@@ -39,21 +36,23 @@ public class RetailerInventory
         this.id = id;
     }
 
-    @Column(name="RIRETAILER")
-    public Integer getRetailer() {
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="RIRETAILER")
+    public Retailer getRetailer() {
         return retailer;
     }
 
-    public void setRetailer(Integer retailer) {
+    public void setRetailer(Retailer retailer) {
         this.retailer = retailer;
     }
 
-    @Column(name="RIPRODUCT")
-    public Integer getProduct() {
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="RIPRODUCT")
+    public Product getProduct() {
         return product;
     }
 
-    public void setProduct(Integer product) {
+    public void setProduct(Product product) {
         this.product = product;
     }
 

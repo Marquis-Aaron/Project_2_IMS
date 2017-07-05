@@ -34,6 +34,18 @@ imsApp.config(function($stateProvider, $urlRouterProvider, $locationProvider){
             url: '/purchaseOrders',
             templateUrl: 'orders.html',
             controller: 'OrderViewCtrl'
+        })
+
+        .state('sales', {
+            url: '/sales',
+            templateUrl: 'retailerSales.html',
+            controller: 'SaleViewCtrl'
+        })
+
+        .state('purchaseOrder', {
+            url: '/purchaseOrder',
+            templateUrl: 'purchaseOrder.html',
+            controller: 'PurchaseOrderCtrl'
         });
 
         $locationProvider.html5Mode(true);

@@ -1,19 +1,19 @@
-<div class="jumbotron text-center">
-    <h1>Suppliers</h1>
+<div class="jumbotron text-center" style="background-color:white;">
+    <h1 >Suppliers</h1>
 </div>
-<table class="table table-hover table-inverse bg-inverse">
-    <tr>
-        <th>Name</th>
-        <th>Street</th>
-        <th>City</th>
-        <th>State</th>
-        <th>Zip Code</th>
+<table class="table table-hover table-inverse bg-inverse" >
+    <tr style="background-color:powderblue;">
+        <th style="color:black;">Name</th>
+        <th style="color:black;">Street</th>
+        <th style="color:black;">City</th>
+        <th style="color:black;">State</th>
+        <th style="color:black;">Zip Code</th>
     </tr>
-    <tr ng-repeat="s in suppliers">
-        <td>{{s.name}}</td>
-        <td>{{s.address.street}}</td>
-        <td>{{s.address.city}}</td>
-        <td>{{s.address.state}}</td>
-        <td>{{s.address.zip}}</td>
+    <tr ng-repeat="s in suppliers" style="background-color:pink;" >
+        <td style="color:black;" >{{s.name}}</td>
+        <td style="color:black;">{{s.address.street}}</td>
+        <td style="color:black;">{{s.address.city}}</td>
+        <td style="color:black;">{{s.address.state}}</td>
+        <td style="color:black;">{{s.address.zip}}</td>
     </tr>
 </table>

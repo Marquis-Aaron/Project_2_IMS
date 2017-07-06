@@ -1,22 +1,23 @@
-<div class="jumbotron text-center">
+<div class="jumbotron text-center" style="background-color:white;">
     <h1>Orders</h1>
 </div>
 <!--
     TODO: set up filter to allow you to filter by supplier and retailer
 -->
 <table class="table table-hover table-inverse bg-inverse">
-    <tr>
-        <th>Order ID</th>
-        <th>Supplier</th>
-        <th>Retailer</th>
-        <th>Total Cost</th>
+    <tr style="background-color:powderblue;">
+        <th style="color:black;">Order ID</th>
+        <th style="color:black;">Supplier</th>
+        <th style="color:black;">Retailer</th>
+        <th style="color:black;">Total Cost</th>
+        <th style="color:black;">Date</th>
     </tr>
-    <tr ng-repeat="o in orders" data-toggle="modal" data-target="#viewOrderLine" scope="row" ng-click="getPurchaseOrderLine(o.id, o.time, o.cost)">
-        <td>{{o.id}}</td>
-        <td>{{o.supplier.name}}</td>
-        <td>{{o.retailer.name}}</td>
-        <td>{{o.cost}}</td>
-        <td>{{o.time | date : format : timezone}}
+    <tr ng-repeat="o in orders" data-toggle="modal" data-target="#viewOrderLine" scope="row" ng-click="getPurchaseOrderLine(o.id, o.time, o.cost)" style="background-color:pink;" >
+        <td style="color:black;">{{o.id}}</td>
+        <td style="color:black;">{{o.supplier.name}}</td>
+        <td style="color:black;">{{o.retailer.name}}</td>
+        <td style="color:black;">{{o.cost}}</td>
+        <td style="color:black;">{{o.time | date : format : timezone}}
     </tr>
 </table>
 <div class="modal fade bg-faded" id="viewOrderLine" tabindex="-1" role="dialog">
@@ -29,7 +30,7 @@
         </div>
         <div class="modal-body">
                 Date of Purchase: {{selectedOrder.time | date : format : timezone}}
-            <div ng-repeat="pol in purchaseOrderLine">
+            <div ng-repeat="pol in purchaseOrderLine" style="background-color:pink;">
                 Product: {{pol.product.name}} Category {{pol.product.productCategory.category.name}}
                 Supplier Price: {{pol.product.supplierPrice}}
                 Retailer Price: {{pol.product.retailerPrice}}

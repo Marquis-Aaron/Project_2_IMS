@@ -18,13 +18,16 @@
                 <span ng-if="!p.item.selected">{{p.product.name}}</span>
                 <label for="cost">Item Cost: </label>{{p.product.supplierPrice | currency}}
                 <label for="qty">Quantity: </label>
-                <input type="number" min="0" max="999" maxlength="3" ng-model="p.qty" ng-disabled="!p.item.selected" ng-pattern="/[0-9]+/" name="cost">
-                <button type="button" class="btn btn-primary" ng-click="addProduct($index)" ng-if="p.item.selected" ng-disabled="!p.category || !p.product || !p.qty" name="quantity">Add To Order</button>
+                <input type="number" min="0" max="999" maxlength="3" ng-model="p.quantity" ng-disabled="!p.item.selected" ng-pattern="/[0-9]+/" name="cost">
+                <button type="button" class="btn btn-primary" ng-click="addProduct($index)" ng-if="p.item.selected" ng-disabled="!p.category || !p.product || !p.quantity" name="quantity">Add To Order</button>
+                <button type="button" class="close" ng-click="removePOL($index)" ng-disabled="p.item.selected">
+                    <span>&times;</span>
+                </button>
             </div>
         </div>
         <div class="form-group">
             <label for="total">Total Cost: </label>{{order.cost | currency}}
-            <input type="submit" value="Submit" style="float: right;" ng-disabled="order.cost == 0 || !order.retailer || !order.supplier">
+            <input type="submit" value="Submit" style="float: right;" ng-disabled="order.cost == 0 || !order.retailer || !order.supplier || sizeLessThanOne()">
         </div>
     </form>
 </div>

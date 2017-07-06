@@ -42,7 +42,8 @@ function($scope, $http){
     $scope.newItem = {
         category: "",
         product: "",
-        qty: 0,
+        quantity: 0,
+        cost: 0,
         selected: true
     }
     $scope.order = {
@@ -51,7 +52,7 @@ function($scope, $http){
         cost: 0.00
     }
     $scope.newProducts = [{item: angular.copy($scope.newItem)}];
-    
+
     $scope.selectCateogry = 'All';
     // Filters product list on category change.
     $scope.changeCateogry = function(i){
@@ -61,28 +62,44 @@ function($scope, $http){
         }
     }
 
+    $scope.removePOL = function(i){
+        $scope.order.cost -= $scope.newProducts[i].product.supplierPrice * $scope.newProducts[i].quantity
+        $scope.newProducts.splice(i, 1);
+    }
     $scope.productFilter = function(pro){
         return $scope.selectCateogry == "All" || 
         pro.productCategory.category.name == $scope.selectCateogry;
     }
 
-    // //Adds products to the purchase order line as well as adds cost of products to order total.
-    // $scope.addProduct = function(i){
-    //     $scope.newProducts[i].item.selected = false;
-    //     $scope.order.cost += $scope.newProducts[i].product.supplierPrice * $scope.newProducts[i].qty;
-    //     $scope.newProducts[i + 1] = {item: angular.copy($scope.newItem)}
-    // }
-    //
-    // $scope.submitOrder = function(){
-    //     $http.post('/submit/po', {"po":$scope.order,"pols":$scope.newProducts})
-    //         .then(function (response) {
-    //                 console.log("Success");
-    //             },
-    //             function (response) {
-    //                 console.log("Error");
-    //             });
-    //
-    //     console.log($scope.order);
-    //     console.log($scope.newProducts);
-    // }
+    //Adds products to the purchase order line as well as adds cost of products to order total.
+    $scope.addProduct = function(i){
+        $scope.newProducts[i].item.selected = false;
+        $scope.newProducts[i].cost = $scope.newProducts[i].quantity * $scope.newProducts[i].product.supplierPrice;
+        $scope.order.cost += $scope.newProducts[i].product.supplierPrice * $scope.newProducts[i].quantity;
+        $scope.newProducts[i + 1] = {item: angular.copy($scope.newItem)}
+    }
+    $scope.sizeLessThanOne = function(){
+        if ($scope.newProducts.length <= 1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    $scope.submitOrder = function(){
+        $scope.newProducts.splice($scope.newProducts.length - 1, 1);
+        $http.post('/submit/po', {"po":$scope.order,"pols":$scope.newProducts})
+            .then(function (response) {
+                    console.log("Success");
+                    $scope.newProducts.splice(0, $scope.newProducts.length);
+                    $scope.newProducts = [{item: angular.copy($scope.newItem)}];
+                    $scope.order = { retailer: "", supplier: "", cost: 0.00 }
+                },
+                function (response) {
+                    console.log("Error");
+                });
+    
+        console.log($scope.order);
+        console.log($scope.newProducts);
+    }
 }]);

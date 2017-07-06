@@ -1,9 +1,12 @@
 package com.ims.dao;
 
 import com.ims.domain.PurchaseOrder;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-
+import org.springframework.orm.hibernate4.HibernateTemplate;
+import org.springframework.orm.hibernate5.*;
 import java.util.List;
 
 /**

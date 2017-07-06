@@ -12,7 +12,7 @@
             <div class="form-group" ng-repeat="p in newProducts">
                 <label for="category">Category: </label>
                 <select ng-model="p.category" ng-options="cat.name for cat in categories" ng-change="changeCateogry($index)" ng-if="p.item.selected" name="category"></select>
-                <span ng-if="!p.item.selected">{{p.category.name}}</span>
+                <span ng-if="!p.item.selected" >{{p.category.name}}</span>
                 <label for="product">Product: </label>
                 <select ng-model="p.product" ng-options="pro.name for pro in products | filter:productFilter:pro" ng-if="p.item.selected" name="product"></select>
                 <span ng-if="!p.item.selected">{{p.product.name}}</span>

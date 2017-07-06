@@ -28,22 +28,27 @@
     <script src="PurchaseOrderCtrl.js"></script>
     <script src="ReportCtrl.js"></script>
     
+    <style>
+    li {background-color: pink}
+   
+    </style>
 
 </head>
-<body ng-app="imsApp">
-    <div class="container">
-        <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+<body ng-app="imsApp" style="background-color:powderblue;">
+    <div class="container" style="background-color:white;">
+        <nav class="navbar navbar-toggleable-md navbar-light bg-faded" style="background-color:white;">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" style="background-color:white;">
+                <span class="navbar-toggler-icon" style="background-color:white;"></span>
             </button>
-            <a class="navbar-brand" ui-sref="home" ui-sref-active="active">IMS</a>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
+            <a class="navbar-brand" ui-sref="home" ui-sref-active="active" style="background-color:white;"> AM Electronics - IMS</a>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown" style="background-color:white;">
+                <ul class="navbar-nav" style="background-color:white;">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="
+                        background-color: pink;">
                             Views:
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color:powderblue;">
                             <a class="dropdown-item" ui-sref='suppliers' ui-sref-active="active">Suppliers</a>
                             <a class="dropdown-item" ui-sref='retailers' ui-sref-active="active">Retailers</a>
                             <a class="dropdown-item" ui-sref='products' ui-sref-active="active">Products</a>
@@ -53,13 +58,13 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" ui-sref='purchaseOrder' ui-sref-active="active">Submit</a>
+                        <a class="nav-link" ui-sref='purchaseOrder' ui-sref-active="active" style="background-color:white;">Submit</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color:powderblue;">
                             Reports:
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-color:pink;">
                             <a class="dropdown-item" href="#">Retailer Overall State</a>
                             <a class="dropdown-item" ui-sref='retailerReport' ui-sref-active="active">Retailer Performance</a>
                         </div>

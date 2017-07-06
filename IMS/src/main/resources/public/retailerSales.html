@@ -1,23 +1,23 @@
-<div class="jumbotron text-center">
+<div class="jumbotron text-center" style="background-color:white;">
     <h1>Sales</h1>
 </div>
 <table class="table table-hover table-inverse bg-inverse">
-    <tr>
-        <th>Sale ID</th>
-        <th>Retailer</th>
-        <th>Product</th>
-        <th>Category</th>
-        <th>Quantity</th>
-        <th>Total Cost</th>
-        <th>Date </th>
+    <tr style="background-color:powderblue;">
+        <th style="color:black;">Sale ID</th>
+        <th style="color:black;">Retailer</th>
+        <th style="color:black;">Product</th>
+        <th style="color:black;">Category</th>
+        <th style="color:black;">Quantity</th>
+        <th style="color:black;">Total Cost</th>
+        <th style="color:black;">Date </th>
     </tr>
-    <tr ng-repeat="s in sales">
-        <td>{{s.id}}</td>
-        <td>{{s.retailer.name}}</td>
-        <td>{{s.product.name}}</td>
-        <td>{{s.product.productCategory.category.name}}</td>
-        <td>{{s.quantity}}</td>
-        <td>{{s.cost | currency}}</td>
-        <td>{{s.time | date : format : timezone}}</td>
+    <tr ng-repeat="s in sales" style="background-color:pink;">
+        <td style="color:black;">{{s.id}}</td>
+        <td style="color:black;">{{s.retailer.name}}</td>
+        <td style="color:black;">{{s.product.name}}</td>
+        <td style="color:black;">{{s.product.productCategory.category.name}}</td>
+        <td style="color:black;">{{s.quantity}}</td>
+        <td style="color:black;">{{s.cost | currency}}</td>
+        <td style="color:black;">{{s.time | date : format : timezone}}</td>
     </tr>
 </table>

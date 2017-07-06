@@ -1,17 +1,17 @@
-<div class="jumbotron text-center">
+<div class="jumbotron text-center" style="background-color:white;">
     <h1>Products</h1>
 </div>
 <table class="table table-hover table-inverse bg-inverse">
-    <tr>
-        <th>Name</th>
-        <th>Supplier Price</th>
-        <th>Retailer Price</th>
-        <th>Category</th>
+    <tr style="background-color:powderblue;">
+        <th style="color:black;">Name</th>
+        <th style="color:black;">Supplier Price</th>
+        <th style="color:black;">Retailer Price</th>
+        <th style="color:black;">Category</th>
     </tr>
-    <tr ng-repeat="p in products">
-        <td>{{p.name}}</td>
-        <td>{{p.supplierPrice | currency}}</td>
-        <td>{{p.retailerPrice | currency}}</td>
-        <td>{{p.productCategory.category.name}}</td>
+    <tr ng-repeat="p in products" style="background-color:pink;">
+        <td style="color:black;">{{p.name}}</td>
+        <td style="color:black;">{{p.supplierPrice | currency}}</td>
+        <td style="color:black;">{{p.retailerPrice | currency}}</td>
+        <td style="color:black;">{{p.productCategory.category.name}}</td>
     </tr>
 </table>

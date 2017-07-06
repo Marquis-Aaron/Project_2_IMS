@@ -50,7 +50,6 @@ public class PurchaseOrderController
     }
 
 
-<<<<<<< HEAD
 //    @RequestMapping(value = "/submitpo", method = RequestMethod.POST)
 //    public  @ResponseBody
 //    String saveCompany(@RequestParam("retailer") String ret,
@@ -123,7 +122,4 @@ public class PurchaseOrderController
 
     }
 
-
-=======
->>>>>>> 342f3d777d11c67bb9539cb68276d35f9e8ff10c
 }

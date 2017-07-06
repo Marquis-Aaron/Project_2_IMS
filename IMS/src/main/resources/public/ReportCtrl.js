@@ -25,6 +25,10 @@ function($scope, $http){
     // }
     $scope.retailArray = [];
     $scope.salesArray = [];
+    $scope.productSales = [];
+    $scope.productNames = [];
+    $scope.categorySales = [];
+    $scope.categoryNames = [];
 
     $scope.generateSales = function(){
         $http({
@@ -45,13 +49,29 @@ function($scope, $http){
         }).then(function successCallback(response) {
             $scope.sales = response.data;
             for(var i = 0; i < $scope.sales.length; i++){
+                // Adds values to the sales Array
                 if (!$scope.salesArray[$scope.sales[i].retailer.id]){
                     $scope.salesArray[$scope.sales[i].retailer.id] = $scope.sales[i].cost;
                 }
                 else {
                     $scope.salesArray[$scope.sales[i].retailer.id] += $scope.sales[i].cost;
                 }
-                
+                // Adds values to product Array
+                if (!$scope.productSales[$scope.sales[i].product.id]){
+                    $scope.productNames[$scope.sales[i].product.id] = $scope.sales[i].product.name;
+                    $scope.productSales[$scope.sales[i].product.id] = $scope.sales[i].quantity * $scope.sales[i].product.retailerPrice;
+                }
+                else {
+                    $scope.productSales[$scope.sales[i].product.id] += $scope.sales[i].quantity * $scope.sales[i].product.retailerPrice;
+                }
+                // Adds values to category Array s.product.productCategory.category.name
+                if (!$scope.categorySales[$scope.sales[i].product.productCategory.category.id]){
+                    $scope.categoryNames[$scope.sales[i].product.productCategory.category.id] = $scope.sales[i].product.productCategory.category.name;
+                    $scope.categorySales[$scope.sales[i].product.productCategory.category.id] = $scope.sales[i].quantity * $scope.sales[i].product.retailerPrice;
+                }
+                else {
+                    $scope.categorySales[$scope.sales[i].product.productCategory.category.id] += $scope.sales[i].quantity * $scope.sales[i].product.retailerPrice;
+                }
             }
             }, function errorCallback(response) {
                 alert("Unable to retreive sales!");

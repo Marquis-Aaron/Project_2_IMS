@@ -65,15 +65,24 @@ function($scope, $http){
         return $scope.selectCateogry == "All" || 
         pro.productCategory.category.name == $scope.selectCateogry;
     }
-    //Adds products to the purchase order line as well as adds cost of products to order total.
-    $scope.addProduct = function(i){
-        $scope.newProducts[i].item.selected = false;
-        $scope.order.cost += $scope.newProducts[i].product.supplierPrice * $scope.newProducts[i].qty;
-        $scope.newProducts[i + 1] = {item: angular.copy($scope.newItem)}
-    }
 
-    $scope.submitOrder = function(){
-        console.log($scope.order);
-        console.log($scope.newProducts);
-    }
+    // //Adds products to the purchase order line as well as adds cost of products to order total.
+    // $scope.addProduct = function(i){
+    //     $scope.newProducts[i].item.selected = false;
+    //     $scope.order.cost += $scope.newProducts[i].product.supplierPrice * $scope.newProducts[i].qty;
+    //     $scope.newProducts[i + 1] = {item: angular.copy($scope.newItem)}
+    // }
+    //
+    // $scope.submitOrder = function(){
+    //     $http.post('/submit/po', {"po":$scope.order,"pols":$scope.newProducts})
+    //         .then(function (response) {
+    //                 console.log("Success");
+    //             },
+    //             function (response) {
+    //                 console.log("Error");
+    //             });
+    //
+    //     console.log($scope.order);
+    //     console.log($scope.newProducts);
+    // }
 }]);

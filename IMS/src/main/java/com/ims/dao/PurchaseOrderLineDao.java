@@ -14,4 +14,6 @@ import java.util.Collection;
 public interface PurchaseOrderLineDao extends CrudRepository<PurchaseOrderLine, Integer>
 {
     Collection<PurchaseOrderLine> findAllByPurchaseOrder(Integer purchaseOrder);
+
+
 }

@@ -3,6 +3,7 @@ package com.ims.domain;
 import oracle.sql.TIMESTAMP;
 
 import javax.persistence.*;
+import java.sql.Time;
 import java.sql.Timestamp;
 
 /**
@@ -22,13 +23,13 @@ public class RetailerSale
     public RetailerSale() {
     }
 
-    public RetailerSale(Integer id, Integer retailer, Integer product, Integer quantity, Float cost, TIMESTAMP time) {
+    public RetailerSale(Integer id, Retailer retailer, Product product, Integer quantity, Float cost, TIMESTAMP time) {
         this.id = id;
         this.retailer = retailer;
         this.product = product;
         this.quantity = quantity;
         this.cost = cost;
-        this.time = time;
+        //this.time = new Timestamp();
     }
 
     @Id

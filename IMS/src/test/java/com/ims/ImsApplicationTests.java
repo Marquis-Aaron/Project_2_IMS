@@ -82,11 +82,11 @@ public class ImsApplicationTests
 		Mockito.when(rdao.findOne(30)).thenReturn(null);
 
 		//Mockito.when(ridao.findAll()).thenReturn((List<RetailerInventory>) new RetailerInventory());
-		Mockito.when(ridao.findOne(1)).thenReturn(new RetailerInventory(1, 3, 7, 50, 20));
+		Mockito.when(ridao.findOne(1)).thenReturn(new RetailerInventory(1, new Retailer(1, "Retailer", new Address(1, "Fake st", "Fake City", "Fake State", "12345")), new Product(1, "Phone", 500.00F, 600.00F, new ProductCategory(1, new Category(1, "Cell Phones"))), 30, 20));
 		Mockito.when(ridao.findOne(30)).thenReturn(null);
 
 		//Mockito.when(rsdao.findAll()).thenReturn((List<RetailerSale>) new RetailerSale());
-		Mockito.when(rsdao.findOne(1)).thenReturn(new RetailerSale(1, 6, 19, 50, 600.00F, new TIMESTAMP()));
+		Mockito.when(rsdao.findOne(1)).thenReturn(new RetailerSale(1, new Retailer(), new Product(), 30, 500.00F, new TIMESTAMP()));
 		Mockito.when(rsdao.findOne(30)).thenReturn(null);
 
 		//Mockito.when(sdao.findAll()).thenReturn((List<Supplier>) new Supplier());

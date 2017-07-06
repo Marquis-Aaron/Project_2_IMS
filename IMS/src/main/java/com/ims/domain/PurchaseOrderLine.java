@@ -28,6 +28,8 @@ public class PurchaseOrderLine
 
     @Id
     @Column(name="POLID")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="polseq")
+    @SequenceGenerator(name="polseq", sequenceName = "SEQ_POL", allocationSize = 1)
     public Integer getId() {
         return id;
     }

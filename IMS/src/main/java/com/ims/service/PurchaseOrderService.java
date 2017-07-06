@@ -17,10 +17,18 @@ public class PurchaseOrderService
 {
     @Autowired
     PurchaseOrderDao dao;
+    //POImpl dao;
 
     public PurchaseOrder getById(Integer id){return dao.findOne(id);}
 
     public List<PurchaseOrder> getAll(){return (List<PurchaseOrder>)dao.findAll();}
+
+    //add to purchase order
+    public PurchaseOrder addPo(PurchaseOrder po)
+    {
+        return dao.save(po);
+    }
+
 
 
 }

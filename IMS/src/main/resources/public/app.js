@@ -1,4 +1,4 @@
-var imsApp = angular.module('imsApp', ['ui.router']);
+var imsApp = angular.module('imsApp', ['ui.router', 'chart.js']);
 
 imsApp.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 
@@ -46,7 +46,12 @@ imsApp.config(function($stateProvider, $urlRouterProvider, $locationProvider){
             url: '/purchaseOrder',
             templateUrl: 'purchaseOrder.html',
             controller: 'PurchaseOrderCtrl'
-        });
+        })
 
+        .state('retailerReport', {
+            url: '/retailerReport',
+            templateUrl: 'retailerReport.html',
+            controller: 'ReportCtrl' 
+        })
         $locationProvider.html5Mode(true);
 })

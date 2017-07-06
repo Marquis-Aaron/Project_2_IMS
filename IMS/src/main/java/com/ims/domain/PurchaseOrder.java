@@ -25,13 +25,15 @@ public class PurchaseOrder implements Serializable {
 
     public PurchaseOrder(Integer id, TIMESTAMP time, Supplier supplier, Retailer retailer, Float cost) {
         this.id = id;
-        this.time = time;
+        //this.time = time;
         this.supplier = supplier;
         this.retailer = retailer;
         this.cost = cost;
     }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="poseq")
+    @SequenceGenerator(name="poseq", sequenceName = "SEQ_PO", allocationSize = 1)
     @Column(name="POID")
     public Integer getId() {
         return id;

@@ -61,15 +61,16 @@ function($scope, $http){
             $scope.selectCateogry = $scope.newProducts[i].category.name;
         }
     }
-
+     $scope.productFilter = function(pro){
+        return $scope.selectCateogry == "All" || 
+        pro.productCategory.category.name == $scope.selectCateogry;
+    }
+    // Removes a purchase order line for the newProducts array
     $scope.removePOL = function(i){
         $scope.order.cost -= $scope.newProducts[i].product.supplierPrice * $scope.newProducts[i].quantity
         $scope.newProducts.splice(i, 1);
     }
-    $scope.productFilter = function(pro){
-        return $scope.selectCateogry == "All" || 
-        pro.productCategory.category.name == $scope.selectCateogry;
-    }
+   
 
     //Adds products to the purchase order line as well as adds cost of products to order total.
     $scope.addProduct = function(i){

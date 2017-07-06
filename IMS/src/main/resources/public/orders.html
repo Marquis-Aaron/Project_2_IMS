@@ -1,9 +1,21 @@
 <div class="jumbotron text-center" style="background-color:white;">
-    <h1>Orders</h1>
+    <h1>Purchase Orders</h1>
 </div>
-<!--
-    TODO: set up filter to allow you to filter by supplier and retailer
--->
+<div class="navbar navbar-light bg-faded">
+    <h1 class="navbar-brand mb-0">Reports</h1>
+    <div class="navbar-nav">
+        <div class="form-group">
+            <label for="retailer">Retailer: </label>
+            <select ng-model="selectRetailer" ng-options="ret.name for ret in retailers" name="retailer">
+                <option value="">All</option>
+            </select>
+            <label for="supplier">Supplier: </label>
+            <select ng-model="selectSupplier" ng-options="sup.name for sup in suppliers" name="supplier">
+                <option value="">All</option>
+            </select>
+        </div>
+    </div>
+</div>
 <table class="table table-hover table-inverse bg-inverse">
     <tr style="background-color:powderblue;">
         <th style="color:black;">Order ID</th>
@@ -12,7 +24,7 @@
         <th style="color:black;">Total Cost</th>
         <th style="color:black;">Date</th>
     </tr>
-    <tr ng-repeat="o in orders" data-toggle="modal" data-target="#viewOrderLine" scope="row" ng-click="getPurchaseOrderLine(o.id, o.time, o.cost)" style="background-color:pink;" >
+    <tr ng-repeat="o in orders | filter:retailerFilter:o | filter:supplierFilter:o" data-toggle="modal" data-target="#viewOrderLine" scope="row" ng-click="getPurchaseOrderLine(o.id, o.time, o.cost)" style="background-color:pink;" >
         <td style="color:black;">{{o.id}}</td>
         <td style="color:black;">{{o.supplier.name}}</td>
         <td style="color:black;">{{o.retailer.name}}</td>

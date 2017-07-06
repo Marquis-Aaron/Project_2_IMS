@@ -1,8 +1,6 @@
 imsApp.controller("ProductViewCtrl", ['$scope', '$http',
 function($scope, $http){
-
-    $scope.getAll = function(){
-
+    
         $http({
             method: 'GET',
             url: "/product/all"
@@ -11,6 +9,5 @@ function($scope, $http){
             }, function errorCallback(response) {
                 alert("Unable to retreive products!");
         });
-    }();
     
 }]);

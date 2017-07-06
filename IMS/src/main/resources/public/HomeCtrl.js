@@ -29,4 +29,29 @@ function($scope, $http){
             alert("Unable to retreive orders!");
     });
 
+    $scope.out = true;
+    $scope.under = true;
+    $scope.close = true;
+
+    $scope.changeNotification = function(x){
+        $scope.out = false;
+        $scope.under = false;
+        $scope.close = false;
+        switch (x){
+            case "out":
+                $scope.out = true;
+                break;
+            case "under":
+                $scope.under = true;
+                break;
+            case "close":
+                $scope.close = true;
+                break;
+            case "all":
+                $scope.out = true;
+                $scope.under = true;
+                $scope.close = true;
+                break;
+        }
+    }
 }]);

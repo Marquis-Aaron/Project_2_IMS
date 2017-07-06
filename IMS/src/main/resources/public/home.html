@@ -1,12 +1,23 @@
 <div class="jumbotron text-center" style="background-color:powderblue;">
     <h1>Notifications:</h1>
 </div>
-<div class="alert alert-danger" ng-repeat="s in soldOut">
+<div class="navbar navbar-light bg-faded">
+    <h1 class="navbar-brand mb-0">View Notifications By:</h1>
+    <div class="navbar-nav">
+        <form class="form-inline">
+            <button type="button" class="btn btn-outline-primary" ng-click="changeNotification('all')">All</button>
+            <button type="button" class="btn btn-outline-info" ng-click="changeNotification('close')">Sold Out</button>
+            <button type="button" class="btn btn-outline-warning" ng-click="changeNotification('under')">Below Thresehold</button>
+            <button type="button" class="btn btn-outline-danger" ng-click="changeNotification('out')">Near Thresehold</button>
+        </form>
+    </div>
+</div>
+<div class="alert alert-danger" ng-repeat="s in soldOut" ng-if="out">
     <strong>Alert!</strong> {{s.retailer.name}} is sold out of {{s.product.name}}! Place order immediately! Product threshold: {{s.threshold}}.
 </div>
-<div class="alert alert-warning" ng-repeat="b in below">
+<div class="alert alert-warning" ng-repeat="b in below" ng-if="under">
     <strong>Warning!</strong> {{b.retailer.name}} is below threshold of {{b.threshold}} on {{b.product.name}}. Current inventory: {{b.quantity}}.
 </div>
-<div class="alert alert-info" ng-repeat="n in near">
+<div class="alert alert-info" ng-repeat="n in near" ng-if="close">
     <strong>Attention!</strong> {{n.retailer.name}} is approaching threshold of {{n.threshold}} on {{b.product.name}}. Current inventory: {{n.quantity}}.
 </div>

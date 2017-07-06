@@ -1,10 +1,33 @@
-<canvas id="bar" class="chart-horizontal-bar" chart-data="salesArray" chart-labels="retailArray" chart-series"criteria" ng-show="sales">
-</canvas>
-<div id="pieCharts">
-    <canvas id="productPie" class="chart chart-pie"
-        chart-data="productSales" chart-labels="productNames" chart-options="options" ng-show="proPie">
+<div class="navbar navbar-light bg-faded">
+    <h1 class="navbar-brand mb-0">Reports</h1>
+    <div class="navbar-nav">
+        <form class="form-inline">
+            <button type="button" class="btn btn-secondary" ng-click="changeReport('sale')">Total Sales</button>
+            <button type="button" class="btn btn-secondary" ng-click="changeReport('product')">Product Sales</button>
+            <button type="button" class="btn btn-secondary" ng-click="changeReport('category')">Category Sales</button>
+        </form>
+    </div>
+</div>
+<div ng-if="salesChart">
+    <div class="jumbotron text-center" style="background-color:white;">
+        <h1>Total Retailer Sales</h1>
+    </div>
+    <canvas id="bar" class="chart-horizontal-bar" chart-data="salesArray" chart-labels="retailArray" chart-series"criteria">
     </canvas>
+</div>
+<div ng-if="productChart">
+    <div class="jumbotron text-center" style="background-color:white;">
+        <h1>Sales By Product</h1>
+    </div>
+    <canvas id="productPie" class="chart chart-pie"
+        chart-data="productSales" chart-labels="productNames" chart-options="options">
+    </canvas>
+</div>
+<div ng-if="categoryChart">
+    <div class="jumbotron text-center" style="background-color:white;">
+        <h1>Sales By Category</h1>
+    </div>
     <canvas id="categoryPie" class="chart chart-pie"
-        chart-data="categorySales" chart-labels="categoryNames" chart-options="options" ng-show="catPie">
+        chart-data="categorySales" chart-labels="categoryNames" chart-options="options">
     </canvas>
 </div>

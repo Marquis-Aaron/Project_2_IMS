@@ -3,35 +3,7 @@ function($scope, $http){
 
     
     
-    
-    
-    // month = (month < 10) ? "0" + month : month ;
-    // // Gets all retailer sales for report data
-    // $http({
-    //     method: 'POST',
-    //     url: "/rs/salesByMonth",
-    //     data: {
-    //         "start" : new Date(year, month,1,0,0,0,0),
-    //         "end" : new Date(year, month,daysInMonth(year, month),23,59,59,59)
-    //     }
-    // }).then(function successCallback(response) {
-    //         $scope.prevMonth = response.data; 
-    //     }, function errorCallback(response) {
-    //         alert("Unable to retreive sales!");
-    // });
 
-    // $http({
-    //     method: 'POST',
-    //     url: "/rs/salesByMonth",
-    //     data: {
-    //         "start" : new Date(year-1, month,1,0,0,0,0),
-    //         "end" : new Date(year-1, month,daysInMonth(year-1, month),23,59,59,59)
-    //     }
-    // }).then(function successCallback(response) {
-    //         $scope.prevYear = response.data; 
-    //     }, function errorCallback(response) {
-    //         alert("Unable to retreive sales!");
-    // });
 
     //Gets all retailer sales and retailers for report data
     
@@ -44,6 +16,13 @@ function($scope, $http){
     var daysInMonth = function(month, year) {
         return new Date(year, month, 0).getDate();
     }
+
+    // $scope.checkDate = function(order){
+    //     if(order.time < new Date($scope.filterYear, $scope.filterMonth, daysInMonth($scope.filterMonth, $scope.filterYear),23,59,59,99) &&
+    //         order.time > new Date($scope.filterYear, $scope.filterMonth, 1, 0,0,0,0)){
+    //             return order.cost;
+    //         }
+    // }
     $scope.retailArray = [];
     $scope.salesArray = [];
 

@@ -24,29 +24,30 @@
         <th style="color:black;">Total Cost</th>
         <th style="color:black;">Date</th>
     </tr>
-    <tr ng-repeat="o in orders | filter:retailerFilter:o | filter:supplierFilter:o" data-toggle="modal" data-target="#viewOrderLine" scope="row" ng-click="getPurchaseOrderLine(o.id, o.time, o.cost)" style="background-color:pink;" >
+    <tr ng-repeat="o in orders | orderBy: id | filter:retailerFilter:o | filter:supplierFilter:o" data-toggle="modal" data-target="#viewOrderLine" scope="row" ng-click="getPurchaseOrderLine(o.id, o.time, o.cost)" style="background-color:pink;" >
         <td style="color:black;">{{o.id}}</td>
         <td style="color:black;">{{o.supplier.name}}</td>
         <td style="color:black;">{{o.retailer.name}}</td>
-        <td style="color:black;">{{o.cost}}</td>
+        <td style="color:black;">{{o.cost | currency}}</td>
         <td style="color:black;">{{o.time | date : format : timezone}}
     </tr>
 </table>
 <div class="modal fade bg-faded" id="viewOrderLine" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
-        <div class="modal-header">
-            <h4 class="modal-title">Purchase Order ID: {{selectedOrder.id}}</h4>
+        <div class="modal-header" style="border: 2px solid powderblue">
+            <h4 class="modal-title" >Purchase Order ID: {{selectedOrder.id}}</h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="modal-body">
                 Date of Purchase: {{selectedOrder.time | date : format : timezone}}
-            <div ng-repeat="pol in purchaseOrderLine" style="background-color:pink;">
-                Product: {{pol.product.name}} Category {{pol.product.productCategory.category.name}}
-                Supplier Price: {{pol.product.supplierPrice}}
-                Retailer Price: {{pol.product.retailerPrice}}
-                Quantity: {{pol.quantity}} Cost: {{pol.cost | currency}}
+            <div ng-repeat="pol in purchaseOrderLine" style="background-color:pink;border: 2px solid powderblue;">
+                Product: {{pol.product.name}} <br>
+                Category {{pol.product.productCategory.category.name}}<br>
+                Supplier Price: {{pol.product.supplierPrice}}<br>
+                Retailer Price: {{pol.product.retailerPrice}}<br>
+                Quantity: {{pol.quantity}} Cost: {{pol.cost | currency}}<br>
                 <br>
             </div>
         </div>

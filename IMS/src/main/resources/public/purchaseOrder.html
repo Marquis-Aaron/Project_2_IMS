@@ -1,15 +1,15 @@
 <div class="well well-lg">
-    <form class="form" ng-submit="submitOrder()">
-        <div class="form-group">
+    <form class="form" ng-submit="submitOrder()" style="border: 2px solid powderblue;">
+        <div class="form-group"style="border: 2px solid pink;">
             <label for="retailer">Retailer: </label>
             <select ng-model="order.retailer" ng-options="ret.name for ret in retailers" name="retailer"></select>
         </div>
-        <div class="form-group">
+        <div class="form-group" style="border: 2px solid pink;">
             <label for="supplier">Supplier: </label>
             <select ng-model="order.supplier" ng-options="sup.name for sup in suppliers" name="supplier"></select>
         </div>
         <div class="well well-sm">
-            <div class="form-group" ng-repeat="p in newProducts">
+            <div class="form-group" ng-repeat="p in newProducts" style="border: 2px solid powderblue;">
                 <label for="category">Category: </label>
                 <select ng-model="p.category" ng-options="cat.name for cat in categories" ng-change="changeCateogry($index)" ng-if="p.item.selected" name="category"></select>
                 <span ng-if="!p.item.selected" >{{p.category.name}}</span>

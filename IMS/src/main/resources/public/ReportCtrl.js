@@ -40,10 +40,10 @@ function($scope, $http){
             for(var i = 0; i < $scope.sales.length; i++){
                 // Adds values to the sales Array
                 if (!$scope.salesArray[$scope.sales[i].retailer.id]){
-                    $scope.salesArray[$scope.sales[i].retailer.id] = $scope.sales[i].cost;
+                    $scope.salesArray[$scope.sales[i].retailer.id] = $scope.sales[i].quantity * $scope.sales[i].product.retailerPrice;
                 }
                 else {
-                    $scope.salesArray[$scope.sales[i].retailer.id] += $scope.sales[i].cost;
+                    $scope.salesArray[$scope.sales[i].retailer.id] += $scope.sales[i].quantity * $scope.sales[i].product.retailerPrice;
                 }
                 // Adds values to product Array
                 if (!$scope.productSales[$scope.sales[i].product.id]){
